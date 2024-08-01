@@ -1,0 +1,5 @@
+# Basic ignores
+deps
+
+# macOS
+.DS_Store
