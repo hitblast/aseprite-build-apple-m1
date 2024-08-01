@@ -1,4 +1,4 @@
-## Aseprite Build Script for Apple Silicon
+## ✨ Aseprite Build Script for Apple Silicon
 
 This script will build Aseprite for Apple Silicon using the latest version of Aseprite and Skia's binary builds.
 A minimum of **macOS 11 (Big Sur)** is required to run the script.
@@ -37,7 +37,7 @@ The script has successfully built Aseprite on the following device:
 
 ```bash
 # Clone using git.
-$ git clone https://github.com/hitblast/aseprite-build-apple-silicon.git
+$ git clone https://github.com/hitblast/aseprite-build-apple-m1.git
 ```
 
 2. Run the script:
@@ -45,7 +45,7 @@ $ git clone https://github.com/hitblast/aseprite-build-apple-silicon.git
 
 ```bash
 # Change directory to the script.
-$ cd aseprite-build-apple-silicon
+$ cd aseprite-build-apple-m1
 
 # Make the script executable.
 $ chmod +x build.sh
