@@ -41,7 +41,7 @@ $ git clone https://github.com/hitblast/aseprite-build-apple-m1.git
 ```
 
 2. Run the script:
-(sudo is required for using `xattr` to remove quarantine attributes from the built binary)
+(Since `xattr` is required to change some default attributes for creating the app, you might be prompted to enter your `sudo` password.)
 
 ```bash
 # Change directory to the script.
@@ -51,5 +51,5 @@ $ cd aseprite-build-apple-m1
 $ chmod +x build.sh
 
 # Run the script.
-$ sudo ./build.sh
+$ ./build.sh
 ```
