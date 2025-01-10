@@ -1,15 +1,11 @@
 #!/bin/zsh
 emulate -LR zsh
 
-# Check for latest version
-LATEST_RELEASE=$(curl -s https://api.github.com/repos/aseprite/aseprite/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)
+LATEST_RELEASE="v1.3.11"
 
-if [ -z "$LATEST_RELEASE" ]; then
-    LATEST_RELEASE="v1.3.7"
-    echo "Failed to fetch latest version. Using default version: $LATEST_RELEASE"
-else
-    echo "Latest version of Aseprite is: $LATEST_RELEASE"
-fi
+# Check for latest version
+echo "Downloading version: $LATEST_RELEASE"
+echo "Latest version     : $(curl -s https://api.github.com/repos/aseprite/aseprite/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)"
 
 # Export paths and URLs
 export ROOT=$PWD
