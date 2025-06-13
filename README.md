@@ -53,3 +53,10 @@ $ chmod +x build.sh
 # Run the script.
 $ ./build.sh
 ```
+
+**NOTE:** If you're using sccache for compiling, you may unset `CC` and `CXX` variables before executing the script. Here's
+a shortcut:
+
+```bash
+$ unset CC && unset CXX && ./build.sh
+```

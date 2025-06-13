@@ -3,3 +3,6 @@ deps
 
 # macOS
 .DS_Store
+
+# App Bundle
+Aseprite.app

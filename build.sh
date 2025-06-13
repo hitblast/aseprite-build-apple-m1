@@ -1,11 +1,7 @@
 #!/bin/zsh
 emulate -LR zsh
 
-LATEST_RELEASE="v1.3.11"
-
-# Check for latest version
-echo "Downloading version: $LATEST_RELEASE"
-echo "Latest version     : $(curl -s https://api.github.com/repos/aseprite/aseprite/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)"
+LATEST_RELEASE=$(curl -s https://api.github.com/repos/aseprite/aseprite/releases/latest | grep -o '"tag_name": "[^"]*"' | cut -d'"' -f4)
 
 # Export paths and URLs
 export ROOT=$PWD
@@ -13,7 +9,7 @@ export DEPS=$ROOT/deps
 export ASEPRITE=$DEPS/aseprite
 export SKIA=$DEPS/skia
 export ASEZIP="https://github.com/aseprite/aseprite/releases/download/$LATEST_RELEASE/Aseprite-$LATEST_RELEASE-Source.zip"
-export SKIAZIP=https://github.com/aseprite/skia/releases/download/m102-861e4743af/Skia-macOS-Release-arm64.zip
+export SKIAZIP=https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-macOS-Release-arm64.zip
 export ARCH=arm64
 
 # Dependencies check
@@ -97,6 +93,12 @@ else
     fi
 fi
 
+# Cannot use sccache for the build.
+if [[ "$CC" == *sccache* || "$CXX" == *sccache* ]]; then
+    rm -rf deps/aseprite/build
+    echo "Cannot compile Aseprite with sccache."
+    exit 1
+fi
 
 # Begin compiling...
 echo "Beginning compilation for Apple Silicon (tested on M1)..."
